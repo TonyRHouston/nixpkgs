@@ -1,17 +1,15 @@
 name: Reviewed
-
 on:
   pull_request_review:
-    types: [submitted, dismissed]
-
+    types:
+    - submitted
+    - dismissed
 permissions: {}
-
 defaults:
   run:
     shell: bash
-
 jobs:
   trigger:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     steps:
-      - run: echo This is a no-op only used as a trigger for workflow_run.
+    - run: echo This is a no-op only used as a trigger for workflow_run.
