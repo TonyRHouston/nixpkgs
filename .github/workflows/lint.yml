@@ -7,7 +7,7 @@ defaults:
     shell: bash
 jobs:
   treefmt:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
@@ -30,7 +30,7 @@ jobs:
         \ if not.\"\n  echo \"If you're having trouble, please ping @NixOS/nix-formatting\"\
         \n  exit 1\nfi\n"
   parse:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
@@ -58,7 +58,7 @@ jobs:
 
         '
   nixpkgs-vet:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
@@ -89,7 +89,7 @@ jobs:
         fi\n"
   commits:
     if: ${{ github.event.pull_request.number }}
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
