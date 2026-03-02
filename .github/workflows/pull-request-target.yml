@@ -8,7 +8,7 @@ concurrency:
 permissions: {}
 jobs:
   prepare:
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     permissions:
       pull-requests: write
     outputs:
@@ -100,7 +100,7 @@ jobs:
     - lint
     - eval
     - build
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     permissions:
       statuses: write
     steps:
