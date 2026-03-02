@@ -1,45 +1,39 @@
 name: Push
-
 on:
   pull_request:
     paths:
-      - .github/workflows/push.yml
-      # eval is tested via pr.yml
+    - .github/workflows/push.yml
   push:
-    # Keep this synced with ci/request-reviews/dev-branches.txt
     branches:
-      - master
-      - staging
-      - release-*
-      - staging-*
-      - haskell-updates
-      - python-updates
-
+    - master
+    - staging
+    - release-*
+    - staging-*
+    - haskell-updates
+    - python-updates
 permissions: {}
-
 jobs:
   prepare:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     outputs:
       systems: ${{ steps.systems.outputs.systems }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          sparse-checkout: |
-            ci/supportedSystems.json
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      with:
+        sparse-checkout: 'ci/supportedSystems.json
 
-      - name: Load supported systems
-        id: systems
-        run: |
-          echo "systems=$(jq -c <ci/supportedSystems.json)" >> "$GITHUB_OUTPUT"
+          '
+    - name: Load supported systems
+      id: systems
+      run: 'echo "systems=$(jq -c <ci/supportedSystems.json)" >> "$GITHUB_OUTPUT"
 
+        '
   eval:
     name: Eval
-    needs: [prepare]
+    needs:
+    - prepare
     uses: ./.github/workflows/eval.yml
-    # Those are not actually used on push, but will throw an error if not set.
     permissions:
-      # compare
       issues: write
       pull-requests: write
       statuses: write
