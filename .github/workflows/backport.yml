@@ -13,7 +13,7 @@ jobs:
     name: Backport Pull Request
     if: vars.NIXPKGS_CI_APP_ID && github.event.pull_request.merged == true && (github.event.action
       != 'labeled' || startsWith(github.event.label.name, 'backport'))
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
     - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf
