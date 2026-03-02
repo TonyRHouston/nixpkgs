@@ -9,7 +9,7 @@ defaults:
 jobs:
   react:
     name: React with eyes
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     timeout-minutes: 2
     if: contains(github.event.comment.body, '@NixOS/nixpkgs-merge-bot merge')
     steps:
