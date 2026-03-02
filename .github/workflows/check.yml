@@ -10,7 +10,7 @@ jobs:
     if: inputs.baseBranch && inputs.headBranch
     permissions:
       pull-requests: write
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
@@ -42,7 +42,7 @@ jobs:
         GH_TOKEN: ${{ github.token }}
       run: gh api /rate_limit | jq
   owners:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
