@@ -8,7 +8,7 @@ concurrency:
 permissions: {}
 jobs:
   prepare:
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     outputs:
       merge-group: ${{ steps.files.outputs.merge-group }}
       mergedSha: ${{ steps.prepare.outputs.mergedSha }}
