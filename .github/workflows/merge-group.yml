@@ -4,7 +4,7 @@ on:
 permissions: {}
 jobs:
   prepare:
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     outputs:
       baseBranch: ${{ steps.prepare.outputs.base }}
       mergedSha: ${{ steps.prepare.outputs.mergedSha }}
@@ -88,7 +88,7 @@ jobs:
     - lint
     - eval
     - build
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     permissions:
       statuses: write
     steps:
